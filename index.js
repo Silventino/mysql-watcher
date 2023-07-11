@@ -31,10 +31,10 @@ const program = async () => {
 
   await instance.start();
 
-  const dbName = "cebevil"
+  const dbName = process.env.DB_NAME
 
   instance.addTrigger({
-    name: 'TEST',
+    name: 'MYSQL_WATCHER',
     expression: '*',
     statement: MySQLEvents.STATEMENTS.ALL,
     onEvent: async (event) => { // You will receive the events here
